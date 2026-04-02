@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     private float fireDistance = 50f;
     private float lastFireTime;
     public LayerMask noHitLayer;
+    public ParticleSystem gunEffect;
 
     private Coroutine coShot;
 
@@ -43,7 +44,7 @@ public class Gun : MonoBehaviour
         {
             hitPosition = hit.point;
 
-            IDamageAble damageAble = hit.transform.GetComponent<IDamageAble>();
+            var damageAble = hit.collider.GetComponentInParent<IDamageAble>();
             if (damageAble != null)
             {
                 damageAble.OnDamage(gunData.damage, hit.point, hit.normal);
@@ -63,6 +64,7 @@ public class Gun : MonoBehaviour
     }
     private IEnumerator CoShotEffect(Vector3 hitPosition)
     {
+        gunEffect.Play();
 
         gunAudioPlayer.PlayOneShot(gunData.shotClip);
 
@@ -74,4 +76,5 @@ public class Gun : MonoBehaviour
 
         bulletLineEffect.enabled = false;
     }
+
 }

@@ -14,7 +14,7 @@ TagManager:
   - Player
   - 
   - Ground
-  - 
+  - zombie
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: sortLayer
+    uniqueID: 4059964327
     locked: 0
   m_RenderingLayers:
   - Default
