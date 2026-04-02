@@ -176,6 +176,7 @@ MonoBehaviour:
     m_Bits: 64
   zombieRenderer: {fileID: 741865117177848832}
   hitEffect: {fileID: 2119442485596202713}
+  zombieData: {fileID: 11400000, guid: f605ddb62509c6740aa49fdb7e7f4c8c, type: 2}
   score: 50
   attackDamage: 20
   moveSpeed: 1

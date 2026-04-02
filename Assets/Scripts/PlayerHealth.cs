@@ -68,4 +68,9 @@ public class PlayerHealth : LivingEntity
     {
         uiManager.SetActiveGameOverUi(true);
     }
+
+    public void Heal(float heal)
+    {
+        playerHealth += heal;
+    }
 }

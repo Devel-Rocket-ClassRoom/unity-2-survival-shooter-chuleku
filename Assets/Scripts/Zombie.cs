@@ -21,6 +21,7 @@ public class Zombie : LivingEntity
     private Animator animator;
     public Renderer zombieRenderer;
     public ParticleSystem hitEffect;
+    public ZombieData zombieData;
     public int score;
     public static readonly int HashMove = Animator.StringToHash("Target");
 
@@ -63,16 +64,6 @@ public class Zombie : LivingEntity
 
 
         }
-    }
-    public void Setup(ZombieData data)
-    {
-        gameObject.SetActive(false);
-        startingHealth = data.health;
-        attackDamage = data.attackDamage;
-        navMeshAgent.speed = moveSpeed;
-
-        zombieRenderer.material.color = data.skinColor;
-        gameObject.SetActive(true);
     }
     private void Awake()
     {
@@ -231,6 +222,7 @@ public class Zombie : LivingEntity
     public override void Die()
     {
         base.Die();
+        DropItem();
         CurrentStatus = Status.Die;
     }
 
@@ -240,5 +232,16 @@ public class Zombie : LivingEntity
     }
     public void StartSinking()
     {
+    }
+
+    public void DropItem()
+    {
+        var percentageItem = Random.Range(0, 100);
+        var pos = transform.position;
+        var randomItem = Random.Range(0,zombieData.items.Length);
+        if(percentageItem <30)
+        {
+            Instantiate(zombieData.items[randomItem],pos,Quaternion.identity);
+        }
     }
 }

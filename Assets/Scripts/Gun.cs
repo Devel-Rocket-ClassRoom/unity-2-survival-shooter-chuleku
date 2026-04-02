@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public PlayerInput input;
     public AudioSource gunAudioPlayer;
     private LineRenderer bulletLineEffect;
+    public float damage;
     private float fireDistance = 50f;
     private float lastFireTime;
     public LayerMask noHitLayer;
@@ -21,6 +22,7 @@ public class Gun : MonoBehaviour
         bulletLineEffect = GetComponent<LineRenderer>();
         bulletLineEffect.positionCount = 2;
         bulletLineEffect.enabled = false;
+        damage = gunData.damage;
     }
 
     private void OnEnable()
@@ -47,7 +49,7 @@ public class Gun : MonoBehaviour
             var damageAble = hit.collider.GetComponentInParent<IDamageAble>();
             if (damageAble != null)
             {
-                damageAble.OnDamage(gunData.damage, hit.point, hit.normal);
+                damageAble.OnDamage(damage, hit.point, hit.normal);
             }
         }
         else
@@ -75,6 +77,11 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         bulletLineEffect.enabled = false;
+    }
+    public void UpDamage(float upDamage)
+    {
+        damage += upDamage;
+        UiManager.instance.SetGunPowerText(damage);
     }
 
 }

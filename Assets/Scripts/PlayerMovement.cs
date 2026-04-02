@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
     public Gun gun;
-
+    public bool isSpeedUp;
+    public float speedUpTime;
 
     private void Awake()
     {
@@ -18,19 +19,30 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody>();
         gun = GetComponentInChildren<Gun>();
+        isSpeedUp = false;
 
 
     }
 
     private void Update()
     {
-        if(playerInput.Fire)
+        if (Time.timeScale == 0f) return;
+        speedUpTime += Time.deltaTime;
+        if (playerInput.Fire)
         {
             gun.Fire();
         }
         float moveAmount = Mathf.Max(Mathf.Abs(playerInput.Move), Mathf.Abs(playerInput.Rotate));
         playerAnimator.SetFloat(HashMove, moveAmount);
         Rotate();
+        if(isSpeedUp)
+        {
+            if(speedUpTime>3f)
+            {
+                moveSpeed = 5f;
+
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -58,5 +70,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawLine(_cameraRay.origin, pointToLook, Color.red);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
+    }
+    public void MoveSpeedUp(float upSpeed)
+    {
+        moveSpeed = upSpeed;
+        isSpeedUp = true;
+        speedUpTime = 0;
     }
 }

@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZombieData
   health: 100
   moveSpeed: 2
-  attackRange: 1.5
   attackDamage: 10
+  items:
+  - {fileID: 8668615945029895376, guid: 4784a8adaa5a63d42b67254c8caec2b4, type: 3}
+  - {fileID: 8522564834677997275, guid: df49f5d6816565941ac8a75b7672a8b9, type: 3}
+  - {fileID: 8194054299980173348, guid: 62d5877004e9c4e4a8fb18e37782b29d, type: 3}
+  skinColor: {r: 1, g: 1, b: 1, a: 1}

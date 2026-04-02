@@ -22,6 +22,7 @@ public class ZombieSpawner : MonoBehaviour
     {
         currentSpawnTime += Time.deltaTime;
         totalSpawnTime += Time.deltaTime;
+        UiManager.instance.SetSpawnTimeText(spawnTime);
         if (currentSpawnTime > spawnTime)
         {
             CreateZombie();
@@ -30,6 +31,7 @@ public class ZombieSpawner : MonoBehaviour
         if(totalSpawnTime > 10f)
         {
             spawnTime -= 0.1f;
+            totalSpawnTime = 0f;
         }
         if(spawnTime<=maxSpawnTime)
         {
