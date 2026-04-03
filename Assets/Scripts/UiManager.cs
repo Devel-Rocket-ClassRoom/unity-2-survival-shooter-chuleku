@@ -79,14 +79,13 @@ public class UiManager : MonoBehaviour
     public void EnemySoundOn()
     {
         enemySounds = true;
-        Debug.Log("사운드 킴");
         buttonToggleOn.SetActive(true);
         buttonToggleOff.SetActive(false);
     }
     public void EnemySoundOff()
     {
         enemySounds = false;
-        Debug.Log("사운드 끔");
+ 
         buttonToggleOn.SetActive(false);
         buttonToggleOff.SetActive(true);
     }

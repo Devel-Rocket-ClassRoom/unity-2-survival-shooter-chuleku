@@ -104,6 +104,10 @@ public class Zombie : LivingEntity
                 UpdateDie();
                 break;
         }
+        if(isDead)
+        {
+            StartSinking(Time.deltaTime);
+        }
     }
 
     private void UpdateIdle()
@@ -168,7 +172,6 @@ public class Zombie : LivingEntity
         transform.LookAt(lookAt);
         if (Time.time > attackedTime + attackDilay)
         {
-            Debug.Log("Attack!");
             attackedTime = Time.time;
             if (damageable != null)
             {
@@ -230,8 +233,9 @@ public class Zombie : LivingEntity
     {
         target = newtarget;
     }
-    public void StartSinking()
+    public void StartSinking(float time)
     {
+        transform.up *= -time;
     }
 
     public void DropItem()

@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         if(plane.Raycast(_cameraRay, out rayLength))
         {
             Vector3 pointToLook = _cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(_cameraRay.origin, pointToLook, Color.red);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
     }

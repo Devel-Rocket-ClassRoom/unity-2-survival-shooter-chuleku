@@ -46,5 +46,9 @@ public class LivingEntity : MonoBehaviour, IDamageAble
     public void Heal(float heal)
     {
         health += heal;
+        if (health > startingHealth)
+        {
+            health = startingHealth;
+        }
     }
 }

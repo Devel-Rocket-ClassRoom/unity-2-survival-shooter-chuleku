@@ -9,6 +9,7 @@ public class MoveSpeedUpItem : MonoBehaviour
         {
             PlayerMovement playerMove = other.GetComponentInChildren<PlayerMovement>();
             playerMove.MoveSpeedUp(10f);
+    
             Debug.Log("넌 강해졌다 돌격해!");
             Destroy(gameObject);
         }
