@@ -20,7 +20,7 @@ public class PlayerHealth : LivingEntity
         playerAudioSource = GetComponent<AudioSource>();
         playerAnimator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerHealth = health;
+        playerHealth = startingHealth;
         if (hpSlider != null) hpSlider.value = 1f;
     }
 
@@ -69,8 +69,4 @@ public class PlayerHealth : LivingEntity
         uiManager.SetActiveGameOverUi(true);
     }
 
-    public void Heal(float heal)
-    {
-        playerHealth += heal;
-    }
 }

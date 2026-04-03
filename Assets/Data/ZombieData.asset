@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 10
   items:
-  - {fileID: 8668615945029895376, guid: 4784a8adaa5a63d42b67254c8caec2b4, type: 3}
+  - {fileID: 4899796525604404280, guid: 591ae18b5425ec74ca321d41f42b712b, type: 3}
   - {fileID: 8522564834677997275, guid: df49f5d6816565941ac8a75b7672a8b9, type: 3}
-  - {fileID: 8194054299980173348, guid: 62d5877004e9c4e4a8fb18e37782b29d, type: 3}
+  - {fileID: 1737702747458432557, guid: 9b2e46ad80d44364f87a33f06f550cf0, type: 3}
   skinColor: {r: 1, g: 1, b: 1, a: 1}

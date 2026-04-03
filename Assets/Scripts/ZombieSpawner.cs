@@ -56,6 +56,15 @@ public class ZombieSpawner : MonoBehaviour
         {
 
             var newZombie = zombie.GetComponent<Zombie>();
+            var zombieSound = newZombie.GetComponent<AudioSource>();
+          if(!UiManager.instance.enemySounds)
+            {
+                zombieSound.volume = 0f;
+            }
+          else
+            {
+                zombieSound.volume = 1f;
+            }
             if (newZombie != null)
             {
                 newZombie.SetTarget(player.transform);

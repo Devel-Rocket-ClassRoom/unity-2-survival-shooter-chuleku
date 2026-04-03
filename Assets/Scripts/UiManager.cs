@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,9 @@ public class UiManager : MonoBehaviour
     private bool isPaused;
     public static UiManager instance;
     public int currentScore;
+    public bool enemySounds;
+    public GameObject buttonToggleOn;
+    public GameObject buttonToggleOff;
 
     public void Awake()
     {
@@ -63,7 +67,6 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        Cursor.visible = false;
     }
 
     public void Pause()
@@ -72,7 +75,20 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
-        Cursor.visible = true;
+    }
+    public void EnemySoundOn()
+    {
+        enemySounds = true;
+        Debug.Log("사운드 킴");
+        buttonToggleOn.SetActive(true);
+        buttonToggleOff.SetActive(false);
+    }
+    public void EnemySoundOff()
+    {
+        enemySounds = false;
+        Debug.Log("사운드 끔");
+        buttonToggleOn.SetActive(false);
+        buttonToggleOff.SetActive(true);
     }
 
     public void Exit()

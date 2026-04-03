@@ -43,4 +43,8 @@ public class LivingEntity : MonoBehaviour, IDamageAble
             health = startingHealth;
         }
     }
+    public void Heal(float heal)
+    {
+        health += heal;
+    }
 }
